@@ -15,7 +15,7 @@ Pre-ratification remediation tasks identified during foundation review (2026-01-
 | 12 | Create project-context.md | Complete |
 | 13 | Research best practices for prompting teams | Complete |
 | 14 | Solas creates SymPAL team personas | Pending |
-| 16 | Create GitHub repo with change control | In Progress |
+| 16 | Create GitHub repo with change control | Complete |
 
 ### Phase 2: After #14
 | # | Job | Status |
