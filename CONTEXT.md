@@ -217,4 +217,45 @@ Full details in `foundations/project-context.md`.
 
 ---
 
+## Git Workflow
+
+**Repo**: https://github.com/sympal-ai/sympal
+
+### Automatic Commits
+
+Keep version control in sync automatically:
+
+- **Commit after completing a task** — Don't batch; commit when done
+- **Commit after significant file changes** — New files, major edits, renames
+- **Commit before ending session** — Never leave uncommitted work
+
+### Commit Style
+
+```
+[area]: Brief description
+
+Optional body for context.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+```
+
+Areas: `foundations`, `prompts`, `docs`, `config`, `meta`
+
+Examples:
+- `foundations: Add Vero final review of philosophical-foundations`
+- `prompts: Create Vale persona for team`
+- `meta: Update jobs-to-be-done status`
+
+### When NOT to Commit
+
+- Mid-task with broken/incomplete state
+- User explicitly says to hold off
+- Exploratory changes user hasn't approved
+
+### Push Frequency
+
+Push after each commit unless batching related changes. Don't let local get ahead of remote.
+
+---
+
 *Last updated: 2026-01-15*
