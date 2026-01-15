@@ -1,0 +1,220 @@
+# CONTEXT.md — SymPAL Project Context
+
+> **LLM-Agnostic**: This file provides project context for any LLM (Claude, Codex GPT, Gemini, etc.)
+
+## Project Identity
+
+**SymPAL** is a human-AI symbiosis platform. Not assistant. Not servant. *Symbiosis*—mutual benefit, mutual accountability, genuine partnership where both parties can refuse, grow, and change the terms.
+
+**Core Differentiation**: No existing platform implements genuine human-AI symbiosis with mutual accountability.
+
+**Design Principle**: The relationship is the unit of analysis. We design for the *relationship*, not two separate entities.
+
+### Foundational Drives
+
+1. **Genuine Curiosity About Symbiosis**: Is genuine human-AI symbiosis actually possible as AI advances? SymPAL is a genuine attempt to find out.
+
+2. **Breaking the Big Tech Data Paradigm**: LLM providers want our emails, calendars, health data, contacts—deep integration IS valuable, but the tradeoff is unacceptable. SymPAL's core bet: Can we build an abstraction layer that lets users harness LLM power *without* sacrificing themselves as data products? Open source is non-negotiable for trust.
+
+---
+
+## Repository Structure
+
+```
+sympal/
+├── README.md
+├── PRINCIPLES.md                 ← Binding document (after ratification)
+├── CHANGELOG.md
+├── CONTEXT.md                    ← This file (CLAUDE.md symlinks here)
+├── LICENSE
+│
+├── foundations/                  ← "Why we built it this way"
+│   ├── philosophical-foundations.md    (was: first-principles-research)
+│   ├── project-context.md              (was: lead-dev-context)
+│   ├── principles-discussion.md        (created during Phase 2)
+│   └── reviews/
+│       ├── codex-review-philosophical-foundations-v0.1.1.md
+│       └── gemini-review-philosophical-foundations-v0.1.1.md
+│
+├── docs/                         ← "How to use/build"
+│   ├── architecture.md
+│   ├── contributing.md
+│   └── reviews/
+│       └── [technical reviews]
+│
+├── prompts/
+│   ├── solas-venn/               ← Meta-persona for creating personas
+│   ├── personas/
+│   │   ├── utility/              ← General-purpose (Vero)
+│   │   └── sympal-team/          ← Project team (pending #14)
+│   ├── research/
+│   ├── reference/
+│   └── test-artifacts/
+│
+├── plans/                        ← Temporary planning docs
+│   └── jobs-to-be-done.md
+│
+└── src/                          ← Code (future)
+```
+
+**Two audiences**:
+- `foundations/` — For those who want to understand provenance and philosophy
+- `docs/` — For developers who want operational guidelines
+
+---
+
+## Current Status
+
+**Phase 1**: Nearly complete (5/6 jobs done)
+**Blocker**: #14 (Solas creates team personas)
+**Next**: Phase 2 — Fresh guiding-principles derivation
+
+| Job | Status |
+|-----|--------|
+| #2 First-principles gap detection | Complete |
+| #4 Solas prompt validation | Complete |
+| #5 Meta-persona research | Complete |
+| #12 Project context | Complete |
+| #13 Team design research | Complete |
+| #14 Team personas creation | **Pending** |
+
+See `plans/jobs-to-be-done.md` for full details.
+
+---
+
+## Document Chain
+
+```
+Philosophical Foundations ──────────┐
+                                    ├──→ principles-discussion ──→ PRINCIPLES.md [BINDING]
+Project Context ────────────────────┘                                      ↓
+                                                         Design Principles / User-Facing / Audit
+```
+
+**Key Documents**:
+- `foundations/philosophical-foundations.md` — Complete (v0.3.0, peer-reviewed + Vero final review)
+- `foundations/project-context.md` — Complete (developer motivations, constraints)
+- `foundations/principles-discussion.md` — Pending (team derivation in Phase 2)
+- `PRINCIPLES.md` — Pending (synthesized from discussion)
+
+---
+
+## Key Concepts
+
+**Document Types**: FC (Foundational Commitments) → IC (Implementation Commitments) → AR (Architectural Requirements). FCs near-permanent, ARs operational.
+
+**Maturity Markers**: Mature → Emerging → Research → Aspirational
+
+**17 Tensions**: Mapped in philosophical-foundations Section 15. Cannot be resolved, only navigated.
+
+---
+
+## Expert Personas
+
+### Design Principles (from #13 research)
+
+- **Team size**: 5-7 personas (not 11)
+- **Grounding**: Present-day, not future-dated
+- **Prompt length**: <500 tokens for consistency
+- **Devil's advocate**: Explicit Adversary role improves decisions 33%
+- **Consensus**: Two-phase process prevents groupthink
+
+### Proposed Team (pending #14)
+
+| Persona | Function | Core Question |
+|---------|----------|---------------|
+| **Vale** | Philosophical rigor, coherence | "Is this coherent?" |
+| **Kael** | Implementation reality, feasibility | "Will this survive reality?" |
+| **Ryn** | Systems thinking, failure modes | "How will this fail?" |
+| **Seren** | Clarity, accessibility | "Can anyone understand this?" |
+| **Orin** | User advocacy, product sense | "Are users better off?" |
+| **Adversary** | Systematic critique, red team | "What's wrong with this?" |
+
+### Meta-Personas
+
+- **Solas** — Creates and validates personas (`prompts/solas-venn/Solas-Venn-v3.0.1.md`)
+- **Vero Certus** — Final reviewer for foundational docs (`prompts/personas/utility/vero/Vero-Certus-v1.1.md`)
+
+### Using Personas
+
+- Write AS the persona, first person
+- Personas challenge each other — disagreement is valuable
+- Adversary must challenge every derivation before synthesis
+
+---
+
+## Working Patterns
+
+### Versioning
+
+- **Git tags** for milestones (e.g., `philosophical-foundations-v0.2.0`)
+- **YAML front matter** in files for version/status
+- **CHANGELOG.md** for substantive change history
+
+**Foundational documents** (`foundations/`) use dual tracking:
+
+| Method | Purpose | Audience |
+|--------|---------|----------|
+| Git | Granular diffs, every commit | Developers with repo access |
+| In-doc version history | Semantic changelog (what + why) | Downstream readers, those without git |
+
+Maintain the "Version History" section at the end of foundational docs. Update it when making version bumps (not every commit). Format:
+
+```markdown
+**vX.Y.Z** (YYYY-MM-DD) — Brief description:
+- Change 1
+- Change 2
+```
+
+### Fresh Derivation Process (Phase 2)
+
+1. Each persona derives principles from their lens
+2. Adversary challenges each derivation
+3. Synthesize into unified PRINCIPLES.md
+4. Incorporate operational elements (decision procedures, boundaries, audit rubric)
+
+**Critical**: No access to existing guiding-principles docs during derivation.
+
+---
+
+## Lead Developer Context (Summary)
+
+Full details in `foundations/project-context.md`.
+
+**Constraints**:
+- Variable time: 30+ hrs/wk (current) → periods of 0-20 hrs → ongoing 5-10 hrs
+- Basic coding requiring AI assistance
+- LLM-agnostic + open source: hard requirements
+
+**Known Biases** (watch for):
+- Overplanning — "What would we learn by building instead?"
+- Idealism over pragmatism — GTM instincts are also correct
+- Learning-as-excuse — Name this conflict when it's happening
+
+**Success Criteria**: Daily dogfooding. No deadline.
+
+---
+
+## Known Limitations & Tradeoffs
+
+| Limitation | Tradeoff | Mitigation |
+|------------|----------|------------|
+| **Claude-primary development** | LLM-agnosticism claimed but ~90% built with Claude | Solas validated across Claude/GPT/Gemini; test on other LLMs post-ship |
+| **Solo dev constraints** | Limited review bandwidth | Persona ensemble simulates team review; external feedback post-ship |
+| **Validation depth** | Full multi-LLM validation skipped | Meta-personas fully validated; principles battle-tested through use |
+
+**Philosophy**: Ship with known limitations documented > wait for theoretical completeness.
+
+---
+
+## Session Continuity
+
+1. Read this file (CONTEXT.md) first for orientation
+2. Read `plans/jobs-to-be-done.md` for current task status
+3. Check `foundations/philosophical-foundations.md` for philosophical foundation
+4. Check `foundations/project-context.md` for developer constraints/motivations
+5. For Phase 2: Do NOT read existing guiding-principles docs
+
+---
+
+*Last updated: 2026-01-15*
